@@ -22,8 +22,8 @@ A production-ready AI companion system that extracts user memories from conversa
 
 1. **Clone the repository**
 ```bash
-git clone <your-repo-url>
-cd task2
+git clone https://github.com/Sidd-15/Memory_extraction.git
+cd Memory_extraction
 ```
 
 2. **Create virtual environment**
@@ -59,67 +59,43 @@ http://localhost:5000
 ## 📁 Project Structure
 
 ```
-task2/
+Memory_extraction/
 ├── app.py                  # Main Flask application with AI logic
 ├── templates/
 │   └── index.html         # Frontend interface
 ├── .env                   # Environment variables (create this)
 ├── .gitignore            # Git ignore rules
 ├── requirements.txt      # Python dependencies
+├── vercel.json           # Vercel deployment configuration
 ├── README.md            # This file
-└── IMPROVEMENTS.md      # Technical documentation
+├── IMPROVEMENTS.md      # Technical documentation
+└── DEPLOYMENT.md        # Deployment guide
 ```
 
-## 🌐 Deployment
+## 🌐 Live Demo
 
-### Option 1: Deploy to Render (Recommended - Free)
+**Deployed on Vercel**: [Your Live URL Here]
 
-1. **Create a `render.yaml` file** (already included):
-```yaml
-services:
-  - type: web
-    name: ai-companion
-    env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
-    envVars:
-      - key: GROQ_API_KEY
-        sync: false
-```
+## 🚀 Deployment
 
-2. **Steps to deploy**:
-   - Push code to GitHub
-   - Go to https://render.com
-   - Click "New" → "Web Service"
-   - Connect your GitHub repository
-   - Render will auto-detect the `render.yaml`
-   - Add `GROQ_API_KEY` environment variable in Render dashboard
-   - Click "Create Web Service"
+This project is deployed on **Vercel** for free hosting.
 
-### Option 2: Deploy to Railway
+### Deploy Your Own (Free)
 
-1. **Push code to GitHub**
+1. **Fork/Clone this repository**
 
-2. **Deploy to Railway**:
-   - Go to https://railway.app
-   - Click "New Project" → "Deploy from GitHub repo"
+2. **Push to your GitHub**
+
+3. **Deploy to Vercel**:
+   - Go to https://vercel.com
+   - Sign up with GitHub
+   - Click "Import Project"
    - Select your repository
-   - Add environment variable: `GROQ_API_KEY`
-   - Railway will auto-deploy
+   - Add environment variable: `GROQ_API_KEY` = `your_key_here`
+   - Click "Deploy"
+   - Done! You'll get a live URL in 1-2 minutes
 
-### Option 3: Deploy to Heroku
-
-1. **Create `Procfile`**:
-```
-web: gunicorn app:app
-```
-
-2. **Deploy**:
-```bash
-heroku create your-app-name
-heroku config:set GROQ_API_KEY=your_key_here
-git push heroku main
-```
+See `DEPLOYMENT.md` for detailed instructions.
 
 ## 🧪 How to Use
 
@@ -134,6 +110,7 @@ git push heroku main
 - **Backend**: Flask (Python)
 - **AI Model**: Llama 3.3 70B via Groq API
 - **Frontend**: Vanilla JavaScript + HTML/CSS
+- **Deployment**: Vercel (Serverless)
 
 ### AI Engineering Highlights
 - **Chain-of-Thought Prompting**: Structured reasoning steps for better analysis
@@ -142,7 +119,6 @@ git push heroku main
 - **Error Handling**: Comprehensive validation and error messages
 - **Modular Design**: Separated memory extraction and personality generation
 
-See `IMPROVEMENTS.md` for detailed technical documentation.
 
 ## 📊 API Endpoints
 
